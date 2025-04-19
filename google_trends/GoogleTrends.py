@@ -17,13 +17,11 @@ class GoogleTrends :
 
         self.payload = f"f.req=%5B%5B%5B%22{rdpids}%22%2C%22%5Bnull%2Cnull%2C%5C%22{geo.upper()}%5C%22%2C0%2C%5C%22en-US%5C%22%2C24%2C1%5D%22%2Cnull%2C%22generic%22%5D%5D%5D&"
         self.headers.update({'Content-Type' : 'application/x-www-form-urlencoded;charset=utf-8'})
-
+        self.response = requests.request("POST", self.url, headers=self.headers, data=self.payload)
     @property
     def result(self) :
         try :
-            response = requests.request("POST", self.url, headers=self.headers, data=self.payload)
-
-            data  = response.text.strip().replace("\\", "")
+            data  = self.response.text.strip().replace("\\", "")
             start = data.index('"i0OFE","') + 9
             end   = data.index(']]]"') + 3
 

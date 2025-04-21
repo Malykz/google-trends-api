@@ -11,7 +11,7 @@ setup(
     author='P.Didy Damar',
     author_email='vididamar45@gmail.kom',
     description='Shoot the trends.google.com API, and serve that response as a python objects',
-    long_description=open('README.md').read(),
+    long_description='Shoot the trends.google.com API, and serve that response as a python objects', # Sementara
     long_description_content_type='text/markdown',
     url='https://github.com/Malykz/google-trends-api',  
     classifiers=[

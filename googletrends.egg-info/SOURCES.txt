@@ -1,8 +1,0 @@
-setup.py
-google_trends/GoogleTrends.py
-google_trends/__init__.py
-googletrends.egg-info/PKG-INFO
-googletrends.egg-info/SOURCES.txt
-googletrends.egg-info/dependency_links.txt
-googletrends.egg-info/requires.txt
-googletrends.egg-info/top_level.txt

@@ -2,6 +2,11 @@
 
 This project provides a simple interface to fetch trend data from Google Trends using Python.
 
+## Instalation
+```bash
+pip install git+https://github.com/Malykz/google-trends-api
+```
+
 ## Usage
 ```python
 > import google_trends

@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: googletrends
+Version: 0.1
+Summary: Shoot the trends.google.com API, and serve that response as a python object
+Home-page: https://github.com/Malykz/google-trends-api
+Author: P.Didy Damar
+Author-email: vididamar45@gmail.kom
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# Google Trends API
+
+Proyek ini menyediakan antarmuka sederhana untuk mengambil data tren dari Google Trends menggunakan Python.
+
+## Usage
+```python
+> import google_trends
+> google_trends.fetch(geo="id")
+```
+
+## Disclaimer
+Whatever the error is, I'm too lazy to make a handling for it. And if there is an error, it will return None.

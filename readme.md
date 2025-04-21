@@ -1,6 +1,6 @@
 # Google Trends API
 
-Proyek ini menyediakan antarmuka sederhana untuk mengambil data tren dari Google Trends menggunakan Python.
+This project provides a simple interface to fetch trend data from Google Trends using Python.
 
 ## Usage
 ```python

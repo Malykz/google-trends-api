@@ -3,7 +3,7 @@ from user_agent import generate_navigator
 
 class GoogleTrends :
     # This is a constant value that when encoded will have value = f.req=[[["{rdpids}","[null,null,\"{geo}\",0,\"en-US\",24,1]",null,"generic"]]]
-    PAYLOAD_FORMAT = "f.req=%5B%5B%5B%22{rdpids}%22%2C%22%5Bnull%2Cnull%2C%5C%22{geo}%5C%22%2C0%2C%5C%22id%5C%22%2C24%2C1%5D%22%2Cnull%2C%22generic%22%5D%5D%5D"
+    PAYLOAD_FORMAT = "f.req=%5B%5B%5B%22{rdpids}%22%2C%22%5Bnull%2Cnull%2C%5C%22{geo}%5C%22%2C0%2C%5C%22id%5C%22%2C{last_hours}%2C1%5D%22%2Cnull%2C%22generic%22%5D%5D%5D"
 
     # The URL that will be used to send requests with POST method.
     BASE_URL = "https://trends.google.com/_/TrendsUi/data/batchexecute"
@@ -13,18 +13,25 @@ class GoogleTrends :
 
     def __init__(
             self,
-            geo:str ,
+            geo:str,
+            last_hours:int | None = None,
             url = None,
             headers = None,
             rdpids = None
         ):
 
         self.geo = geo
+        self.hours = last_hours or 24
         self.url = url or self.BASE_URL
         self.rdpids = rdpids or self.RDPIDS
         self.headers = headers or generate_navigator() # Navigator template for sending requests, Fake user-agent included.
 
-        self.payload = self.PAYLOAD_FORMAT.format(rdpids=self.rdpids, geo=self.geo.upper())
+        self.payload = self.PAYLOAD_FORMAT.format(
+            rdpids = self.rdpids,
+            geo = self.geo.upper(),
+            last_hours = self.hours
+        )
+
         self.headers.update({'Content-Type' : 'application/x-www-form-urlencoded;charset=utf-8'}) # Additional headers that will affect the response format.
         self.response = requests.request("POST", self.url, headers=self.headers, data=self.payload) # Send the Request.
 

@@ -9,8 +9,8 @@ pip install git+https://github.com/Malykz/google-trends-api
 
 ## Usage
 ```python
-> import google_trends
-> google_trends.fetch(geo="id")
+>>> from google_trends import GoogleTrends
+>>> GoogleTrends("id", last_hours=3).result
 ```
 
 ## Output
